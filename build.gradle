@@ -1,0 +1,48 @@
+buildscript{
+	ext {
+		set('springCloudVersion', "2021.0.3")
+		set('springBootVersion', '2.7.3')
+	}
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+		classpath "io.spring.gradle:dependency-management-plugin:1.0.13.RELEASE"
+	}
+}
+
+// 하위 sub project 공통 세팅
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+
+	group 'com.shinmj.msa.security'
+	version = '0.0.1-SNAPSHOT'
+	sourceCompatibility = '11'
+	compileJava.options.encoding("UTF-8")
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter-web'
+		implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '3.0.4'
+
+		compileOnly 'org.projectlombok:lombok'
+		annotationProcessor 'org.projectlombok:lombok'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+		testImplementation 'io.projectreactor:reactor-test'
+	}
+
+	tasks.named('test') {
+		useJUnitPlatform()
+	}
+
+}
+
