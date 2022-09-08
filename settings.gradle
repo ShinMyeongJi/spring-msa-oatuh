@@ -1,0 +1,4 @@
+rootProject.name = 'gateway-oauth'
+include 'gateway'
+include 'user-service'
+
