@@ -1,4 +1,6 @@
 rootProject.name = 'gateway-oauth'
 include 'gateway'
 include 'user-service'
+include 'discoveryserver'
+include 'test-module'
 

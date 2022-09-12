@@ -1,7 +1,7 @@
 buildscript{
 	ext {
 		set('springCloudVersion', "2021.0.3")
-		set('springBootVersion', '2.5.14')
+		set('springBootVersion', '2.4.9')
 	}
 
 	repositories {
@@ -31,8 +31,8 @@ subprojects {
 	}
 
 	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter'
 		implementation 'org.springframework.boot:spring-boot-starter-web'
-		implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-netflix-eureka-client', version: '3.0.4'
 
 		compileOnly 'org.projectlombok:lombok'
 		annotationProcessor 'org.projectlombok:lombok'
