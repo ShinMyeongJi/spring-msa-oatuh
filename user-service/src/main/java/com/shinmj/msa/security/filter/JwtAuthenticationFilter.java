@@ -1,6 +1,7 @@
 package com.shinmj.msa.security.filter;
 
 import com.shinmj.msa.security.service.UserService;
+import com.shinmj.msa.security.service.impl.UserServiceImpl;
 import com.shinmj.msa.security.utils.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -8,6 +9,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -25,12 +27,13 @@ import java.io.IOException;
  * description :
  */
 @RequiredArgsConstructor
+@Component
 @Slf4j
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtTokenProvider jwtTokenProvider;
 
-    private UserService userService;
+    private final UserService userService;
 
 
 
@@ -42,9 +45,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             if (StringUtils.hasText(jwtToken) && jwtTokenProvider.validateJwtToken(jwtToken)){
                 String userId = jwtTokenProvider.getUserId(jwtToken);
+                log.info("token : {}", jwtToken);
+                log.info("userId : {}", userId);
 
                 UserDetails userDetails = userService.loadUserByUsername(userId);
 
+                log.info("userDetails : {}", userDetails);
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken
                          = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));

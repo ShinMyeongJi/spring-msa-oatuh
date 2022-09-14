@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
  * date : 22. 9. 12.
  * description :
  */
+
 public interface UserService extends UserDetailsService {
 
 }

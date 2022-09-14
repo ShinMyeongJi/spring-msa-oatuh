@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
         UserEntity user = userRepository.findById(username)
                 .orElseThrow(() -> new UsernameNotFoundException("해당 아이디를 가진 사용자가 없습니다."));
 
+
         return user;
     }
 }

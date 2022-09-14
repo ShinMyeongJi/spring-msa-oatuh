@@ -4,11 +4,10 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * packageName :  com.shinmj.msa.security.entity
@@ -35,9 +34,16 @@ public class UserEntity implements UserDetails {
     @Column(name ="email")
     private String email;
 
+    //@ElementCollection
+    @Column(name = "role")
+    //private List<String> authorities = new ArrayList<>();
+    private String role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+
+
+
         return null;
     }
 
@@ -48,7 +54,7 @@ public class UserEntity implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.userName;
+        return this.userId;
     }
 
     @Override

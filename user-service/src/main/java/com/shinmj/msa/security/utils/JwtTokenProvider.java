@@ -30,16 +30,16 @@ public class JwtTokenProvider {
     private String SECRET_KEY;
 
 
-    public String createJwtAccessToken(String userId, String uri, List<String> roles) {
+    public String createJwtAccessToken(String userId /*String uri,List<String> roles*/ ) {
         Claims claims = Jwts.claims().setSubject(userId);
-        claims.put("roles", roles);
+        //claims.put("roles", roles);
 
         return Jwts.builder()
                 .addClaims(claims)
                 .setExpiration(new Date(System.currentTimeMillis() + ACCESS_EXPIRED_TIME))
-                .setIssuedAt(new Date())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
-                .setIssuer(uri)
+                //.setIssuer(uri)
                 .compact();
     }
 
