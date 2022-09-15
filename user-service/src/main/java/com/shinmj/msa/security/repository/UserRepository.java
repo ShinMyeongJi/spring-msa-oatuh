@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * packageName :  com.shinmj.msa.security.repository
  * fileName : UserRepository
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */

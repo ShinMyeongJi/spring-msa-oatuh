@@ -3,4 +3,5 @@ include 'gateway'
 include 'user-service'
 include 'discoveryserver'
 include 'test-module'
+include 'first-service'
 

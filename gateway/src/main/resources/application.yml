@@ -1,0 +1,55 @@
+
+server:
+  port: 8087
+
+
+spring:
+  application:
+    name: apigateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: first-service
+          #uri: lb://FIRST-SERVICE
+          uri: http://localhost:8085
+          predicates:
+            - Path=/first-service/**
+        - id: uesr-service
+          uri : http://localhost:8081
+          predicates:
+            - Path=/auth/**
+            - Method=GET
+          filters:
+            - JwtAuthenticationFilter
+        - id: uesr-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/authenticate
+            - Method=POST
+
+  main:
+    web-application-type: reactive
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway
+  endpoint:
+    gateway:
+      enabled: true
+
+
+token:
+  secret: secret-key

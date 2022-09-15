@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 /**
  * packageName :  com.shinmj.msa.security.service
  * fileName : UserService
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */

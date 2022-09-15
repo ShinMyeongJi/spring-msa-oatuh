@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 /**
  * packageName :  com.shinmj.msa.security.config
  * fileName : WebSecurityConfig
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */

@@ -12,7 +12,7 @@ import java.util.UUID;
 /**
  * packageName :  com.shinmj.msa.security.utils
  * fileName : JwtTokenProvider
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */

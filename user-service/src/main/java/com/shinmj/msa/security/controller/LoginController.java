@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * packageName :  com.shinmj.msa.security.controller
  * fileName : LoginController
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 14.
  * description :
  */

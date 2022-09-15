@@ -6,7 +6,7 @@ import lombok.Data;
 /**
  * packageName :  com.shinmj.msa.security.dto
  * fileName : LoginRequest
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 14.
  * description :
  */

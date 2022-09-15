@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * packageName :  com.shinmj.msa.security.entity
  * fileName : User
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */

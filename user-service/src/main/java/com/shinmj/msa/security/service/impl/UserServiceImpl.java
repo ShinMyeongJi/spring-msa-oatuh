@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
  * packageName :  com.shinmj.msa.security.service.impl
  * fileName : UserServiceImpl
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */

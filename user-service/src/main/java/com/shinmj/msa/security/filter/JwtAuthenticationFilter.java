@@ -22,7 +22,7 @@ import java.io.IOException;
 /**
  * packageName :  com.shinmj.msa.security.filter
  * fileName : JwtAuthenticationFilter
- * author :  home
+ * author :  shinmj
  * date : 22. 9. 12.
  * description :
  */
